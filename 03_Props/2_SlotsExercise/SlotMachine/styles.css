@@ -8,3 +8,13 @@ body {
     border: 2px solid white;
     background: grey;
 }
+
+.win {
+    background-color: green;
+    color: white;
+}
+
+.lose {
+    background-color: red;
+    color: white;
+}
