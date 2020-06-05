@@ -4,8 +4,6 @@ class App extends React.Component {
         return (
             <div>
                 <Hello />
-                <Hello />
-                <Hello />
                 <NumPicker />
             </div>
         )
