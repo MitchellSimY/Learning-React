@@ -1,4 +1,5 @@
 import React from "react";
+import Pokecard from "./Pokecard.js";
 
 
 
@@ -16,13 +17,25 @@ class Pokedex extends React.Component {
         ]
     }
 
+    
 
 
     render () {
+        const pokeCard = this.props.pokemon;
+
+
+        let pokemonCardsArray = [];
+        for (let i = 0; i < pokeCard.length; i++) {
+            pokemonCardsArray.push(<Pokecard id={pokeCard[i].id} name={pokeCard[i].name} type={pokeCard[i].type} exp={pokeCard[i].base_experience} />)
+
+
+        }
+
+
         return (
             <div>
                 <h2>Pokedex test</h2>
-                
+                {pokemonCardsArray}
             </div>
         )
     }
