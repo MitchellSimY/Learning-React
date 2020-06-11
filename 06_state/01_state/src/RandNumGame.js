@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 class RandNumGame extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -22,7 +21,7 @@ class RandNumGame extends Component {
         return (
             <div>
                 <h1>{this.state.rng}</h1>
-                <h2>{this.state.rng === 7  || this.state.rng === 3 ? "You win!" : this.state.rng}</h2>
+                <h2>Number is: {this.state.rng === 7  || this.state.rng === 3 ? "You win!" : this.state.rng}</h2>
                 <button onClick={this.handleClick}>Click to change number!</button>
             </div>
         )
