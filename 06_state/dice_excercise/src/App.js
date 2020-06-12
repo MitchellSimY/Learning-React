@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import ButtonRoll from './ButtonRoll.js';
+import RollDice from './RollDice.js';
 
 
 function App() {
   return (
     <div className="App">
-      <ButtonRoll />
+      <RollDice />
     </div>
   );
 }
