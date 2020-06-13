@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Die from "./Die.js";
+import './RollDice.css';
 
 class RollDice extends Component {
     // Constructor.
@@ -19,7 +20,7 @@ class RollDice extends Component {
         // RNG two numbers.
         let rngNumber = Math.floor(Math.random() * 6) + 1;
         let rngNumber2 = Math.floor(Math.random() * 6) + 1;
-        
+
         // Setting the states.
         this.setState({
             die1: rngNumber,
@@ -31,9 +32,11 @@ class RollDice extends Component {
         return (
             <div>
                 <h1>Dice Roller!</h1>
-                <p>--------------------------------------</p>
-                <Die die1={this.state.die1} die2={this.state.die2} />
-                <button onClick={this.rngDiceOnClick}>Roll Dice</button>
+                <div className="die-style">
+                    <Die die={this.state.die1} className="Die-Component-CSS" /> 
+                    <Die die={this.state.die2} className="Die-Component-CSS" />
+                </div>
+                <button onClick={this.rngDiceOnClick}>Roll Dice!</button>
             </div>
         )
     }
