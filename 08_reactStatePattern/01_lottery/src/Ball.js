@@ -4,8 +4,8 @@ import "./Ball.css";
 class Ball extends Component {
     render() {
         return (
-            <div className="ball">
-                <p>Hello</p>
+            <div className="Ball">
+                {this.props.num}
             </div>
         )
     }
