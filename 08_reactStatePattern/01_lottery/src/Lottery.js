@@ -19,31 +19,30 @@ class Lottery extends Component {
     }
 
     generate() {
-        this.setState( curState => ({
+        this.setState(curState => ({
             nums: curState.nums.map(
                 n => Math.floor(Math.random() * this.props.maxNum) + 1
             )
         }));
-    
+
 
     }
 
-handleClick() {
-    this.generate();
-}
+    handleClick() {
+        this.generate();
+    }
 
-render() {
-    return (
-        <section className="Lottery">
-            <h1>{this.props.title}</h1>
-            <div>
-                {this.state.nums.map(n => <Ball num={n} />)}
-            </div>
-            <button onClick={this.handleClick}>Generate</button>
-        </section>
-
-    )
-}
+    render() {
+        return (
+            <section className="Lottery">
+                <h1>{this.props.title}</h1>
+                <div>
+                    {this.state.nums.map(n => <Ball num={n} />)}
+                </div>
+                <button onClick={this.handleClick}>Generate</button>
+            </section>
+        )
+    }
 }
 
 export default Lottery;
