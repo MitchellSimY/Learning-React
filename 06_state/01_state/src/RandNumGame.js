@@ -16,7 +16,6 @@ class RandNumGame extends Component {
         this.setState({ rng: rand });
     }
 
-
     render() {
         return (
             <div>
