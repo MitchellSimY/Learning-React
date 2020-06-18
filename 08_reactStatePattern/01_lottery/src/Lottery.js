@@ -24,8 +24,6 @@ class Lottery extends Component {
                 n => Math.floor(Math.random() * this.props.maxNum) + 1
             )
         }));
-
-
     }
 
     handleClick() {
