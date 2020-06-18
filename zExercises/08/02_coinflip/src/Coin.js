@@ -6,7 +6,7 @@ class Coin extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            coinState: "",
+            coinState: null,
             headsCount: 0,
             tailsCount: 0,
             totalFlips: 0
@@ -21,7 +21,7 @@ class Coin extends Component {
     flipCoin() {
         let rngCoin = Math.floor(Math.random() * 2) + 1;
         // Testing with console log.
-        console.log(rngCoin);
+        // console.log(rngCoin);
         if (rngCoin === 1) {
             this.setState(currentState => ({
                 coinState: "heads",
