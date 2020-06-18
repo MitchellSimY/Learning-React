@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CoinImage from "./CoinImage";
 
 
 class Coin extends Component {
@@ -13,7 +14,7 @@ class Coin extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(){
+    handleClick() {
         this.flipCoin();
     }
 
@@ -40,7 +41,9 @@ class Coin extends Component {
     render() {
         return (
             <div>
-                <h1>{this.state.coinState === "heads" || this.state.coinState === "tails" ? this.state.coinState : ""}</h1>
+            <h1>Let's flip a coin!</h1>
+                <h1>{this.state.coinState !== "" ? <CoinImage coinState={this.state.coinState}/> : ""}</h1>
+                
                 <button onClick={this.handleClick}>Flip Coin!</button>
                 <p>Out of {this.state.totalFlips} flips, there has been {this.state.headsCount} heads and {this.state.tailsCount} tails.</p>
             </div>
