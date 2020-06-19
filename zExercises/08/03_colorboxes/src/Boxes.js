@@ -8,36 +8,22 @@ class Boxes extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
+    static defaultProps = {
+        numBoxes: 18,
+    }
+
     handleClick() {
         console.log("boxes click");
     }
 
     render() {
-        return ( 
+        const boxes = Array.from({ length: this.props.numBoxes }).map(() => <ChangeColors />)
+        return (
             <div onClick={this.handleClick} className="BoxesStyle">
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
-                <ChangeColors />
+                {boxes}
             </div>
         )
     }
-} 
+}
 
 export default Boxes;
