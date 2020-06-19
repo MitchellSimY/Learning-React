@@ -26,9 +26,7 @@ class ChangeColors extends Component {
 
     render() {
         return (
-            <div style={this.state} onClick={this.handleClick}>
-                
-            </div>
+            <div style={this.state} onClick={this.handleClick} />
         )
     }
 }

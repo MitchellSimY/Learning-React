@@ -3,13 +3,8 @@ import ChangeColors from "./ChangeColors";
 import "./Boxes.css";
 
 class Boxes extends Component {
-    constructor(props) {
-        super(props);
-        this.handleClick = this.handleClick.bind(this);
-    }
-
     static defaultProps = {
-        numBoxes: 18,
+        numBoxes: 35,
     }
 
     handleClick() {
@@ -19,7 +14,7 @@ class Boxes extends Component {
     render() {
         const boxes = Array.from({ length: this.props.numBoxes }).map(() => <ChangeColors />)
         return (
-            <div onClick={this.handleClick} className="BoxesStyle">
+            <div className="BoxesStyle">
                 {boxes}
             </div>
         )
