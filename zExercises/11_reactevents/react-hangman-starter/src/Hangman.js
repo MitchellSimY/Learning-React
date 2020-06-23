@@ -36,6 +36,8 @@ class Hangman extends Component {
   */
   handleGuess(evt) {
     let ltr = evt.target.value;
+    let key = evt.target.index;
+    console.log(key);
     this.setState(st => ({
       guessed: st.guessed.add(ltr),
       nWrong: st.nWrong + (st.answer.includes(ltr) ? 0 : 1)
@@ -44,8 +46,9 @@ class Hangman extends Component {
 
   /** generateButtons: return array of letter buttons to render */
   generateButtons() {
-    return "abcdefghijklmnopqrstuvwxyz".split("").map(ltr => (
+    return "abcdefghijklmnopqrstuvwxyz".split("").map((ltr, index) => (
       <button
+        key={index}
         value={ltr}
         onClick={this.handleGuess}
         disabled={this.state.guessed.has(ltr)}
