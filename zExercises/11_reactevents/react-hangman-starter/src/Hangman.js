@@ -36,7 +36,7 @@ class Hangman extends Component {
   */
   handleGuess(evt) {
     let ltr = evt.target.value;
-    let key = evt.target.index;
+    let key = evt.target.poop;
     console.log(key);
     this.setState(st => ({
       guessed: st.guessed.add(ltr),
@@ -49,6 +49,7 @@ class Hangman extends Component {
     return "abcdefghijklmnopqrstuvwxyz".split("").map(ltr => (
       <button
         key={ltr}
+        poop={ltr}
         value={ltr}
         onClick={this.handleGuess}
         disabled={this.state.guessed.has(ltr)}
@@ -65,8 +66,14 @@ class Hangman extends Component {
       <div className='Hangman'>
         <h1>Hangman</h1>
         <img src={this.props.images[this.state.nWrong]} />
+        <p>{this.state.nWrong !== this.props.maxWrong ? `Number Wrong: ${this.state.nWrong}` : "Lose"}</p>
+
+        
         <p className='Hangman-word'>{this.guessedWord()}</p>
-        <p className='Hangman-btns'>{this.generateButtons()}</p>
+        
+        {this.state.nWrong !== this.props.maxWrong ? 
+        <p className='Hangman-btns'>{this.generateButtons()}</p> : null}
+
       </div>
     );
   }
