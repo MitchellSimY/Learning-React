@@ -65,7 +65,7 @@ class Hangman extends Component {
       <div className='Hangman'>
         <h1>Hangman</h1>
         <img src={this.props.images[this.state.nWrong]} />
-        <p>{this.state.nWrong !== this.props.maxWrong ? `Number Wrong: ${this.state.nWrong}` : `Lose, random word was: ${this.state.answer}`}</p>
+        <p>{this.state.nWrong !== this.props.maxWrong ? `Number Wrong: ${this.state.nWrong}` : `Sorry! The word was: ${this.state.answer}`}</p>
 
         
 
@@ -73,6 +73,8 @@ class Hangman extends Component {
 
         {this.state.nWrong !== this.props.maxWrong ?
           <p className='Hangman-btns'>{this.generateButtons()}</p> : null}
+
+          <button>Restart</button>
 
       </div>
     );
