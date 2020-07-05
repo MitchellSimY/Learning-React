@@ -101,16 +101,11 @@ class Board extends Component {
     }
     return (
 
-        <table className="Board">
-          <tbody>
-          {console.log(tableBoard)}
-
+      <table className="Board">
+        <tbody>
           {tableBoard}
-
-
-
-          </tbody>
-        </table>
+        </tbody>
+      </table>
 
     )
 
