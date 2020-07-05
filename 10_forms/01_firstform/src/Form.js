@@ -16,7 +16,7 @@ class Form extends Component {
     handleSubmit(evt) {
         console.log("tst");
         alert(`You typed: ${this.state.username}`)
-        this.setState({username: ""})
+        this.setState({ username: "" })
     }
 
     render() {
@@ -28,6 +28,8 @@ class Form extends Component {
                     <input type="text"
                         value={this.state.username}
                         onChange={this.handleChange} />
+                    <input type="email" placeholder="Email!" />
+                    <input type="password" placeholder="Password" />
 
                     <button>Submit!</button>
                 </form>
