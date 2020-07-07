@@ -12,17 +12,18 @@ class BoxList extends Component {
     }
 
     addBoxes(box) {
+        console.log(box);
         this.setState(state => ({
-            boxes: [...state.boxes, box]
+            boxes: [this.state.boxes, box]
         }));
-        return false;
+        console.log(this.state.boxes);
     }
 
     renderBoxes() {
         return (
             <div>
                 {this.state.boxes.map(boxes => (
-                   <Box /> 
+                   <Box />
                 ))}
             </div>
         )
@@ -33,9 +34,7 @@ class BoxList extends Component {
             <div>
                 <NewBoxForm addBox={this.addBoxes} />
                 {this.renderBoxes}
-                {this.state.boxes.color}
-                {this.state.boxes.height}
-                {this.state.boxes.width}
+                
 
             </div>
         )
