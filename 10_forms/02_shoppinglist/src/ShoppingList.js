@@ -1,5 +1,6 @@
 import React, { Component } from "react"; 
 import ShoppingListForm from "./ShoppingListForm";
+import uuid from "uuid/v4";
 
 class ShoppingList extends Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class ShoppingList extends Component {
         return (
             <ul>
                 {this.state.items.map(item => (
-                    <li>
+                    <li key={item.id}>
                         {item.name}:{item.qty}
                     </li>
                 ))}
