@@ -11,8 +11,6 @@ class ShoppingListForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-
-
     handleChange(evt) {
         this.setState({
             [evt.target.name]: evt.target.value
@@ -22,7 +20,6 @@ class ShoppingListForm extends Component {
     handleSubmit(evt) {
         evt.preventDefault();
         this.props.addItem(this.state);
-        
     }
 
     render() {

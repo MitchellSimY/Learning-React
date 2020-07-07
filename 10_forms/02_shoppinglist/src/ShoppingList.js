@@ -6,8 +6,8 @@ class ShoppingList extends Component {
         super(props);
         this.state = {
             items: [
-                { name: "Milk", qty: "2 gallons"},
-                { name: "Bread", qty: "2 loaves"}
+                { name: "Milk", qty: "2 gallons", id: uuid()},
+                { name: "Bread", qty: "2 loaves", id: uuid()}
             ]
         };
         this.addItem = this.addItem.bind(this);
