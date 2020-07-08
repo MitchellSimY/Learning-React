@@ -12,11 +12,12 @@ class BoxList extends Component {
     }
 
     addBoxes(box) {
-        console.log(box);
+        console.log(`Box information: ${box}`);
         this.setState(state => ({
             boxes: [this.state.boxes, box]
         }));
-        console.log(this.state.boxes);
+        console.log(`State: ${this.state.boxes}`);
+        return false;
     }
 
     renderBoxes() {
@@ -33,7 +34,7 @@ class BoxList extends Component {
         return (
             <div>
                 <NewBoxForm addBox={this.addBoxes} />
-                {this.renderBoxes}
+                {this.renderBoxes()}
                 
 
             </div>

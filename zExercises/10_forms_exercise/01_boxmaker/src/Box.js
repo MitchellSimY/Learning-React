@@ -4,7 +4,7 @@ class Box extends Component {
     render() {
         return(
             <div>
-                <h2>BOX</h2>
+                <h2>BOX!!!</h2>
             </div>
         )
     }

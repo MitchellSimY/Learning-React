@@ -23,7 +23,7 @@ class ShoppingList extends Component {
             <ul>
                 {this.state.items.map(item => (
                     <li key={item.id}>
-                        {item.name}:{item.qty}
+                        {item.name} poop :{item.qty}
                     </li>
                 ))}
             </ul>
