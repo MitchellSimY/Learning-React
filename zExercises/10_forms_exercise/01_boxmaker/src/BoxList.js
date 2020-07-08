@@ -12,19 +12,27 @@ class BoxList extends Component {
     }
 
     addBoxes(box) {
-        console.log(`Box information: ${box}`);
+        // console.log(`Box information: ${box}`);
         this.setState(state => ({
-            boxes: [this.state.boxes, box]
+            boxes: [...this.state.boxes, box]
         }));
-        console.log(`State: ${this.state.boxes}`);
+        // console.log(`State: ${this.state.boxes}`);
         return false;
+    }
+
+    removeBox(box) {
+        console.log(`removing ${box}`);
     }
 
     renderBoxes() {
         return (
             <div>
                 {this.state.boxes.map(boxes => (
-                   <Box />
+                    <Box color={boxes.color}
+                        height={boxes.height}
+                        width={boxes.width}
+                        removeBox={this.removeBox}
+                    />
                 ))}
             </div>
         )
@@ -35,8 +43,6 @@ class BoxList extends Component {
             <div>
                 <NewBoxForm addBox={this.addBoxes} />
                 {this.renderBoxes()}
-                
-
             </div>
         )
     }
