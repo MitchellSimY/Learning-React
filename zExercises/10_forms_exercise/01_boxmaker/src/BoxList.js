@@ -21,7 +21,9 @@ class BoxList extends Component {
     }
 
     removeBox(box) {
-        console.log(`removing ${box}`);
+        console.log(`removing ${box.target.key}`);
+
+        return false;
     }
 
     renderBoxes() {

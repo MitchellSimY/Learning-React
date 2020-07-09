@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+
 class NewBoxForm extends Component {
     constructor(props) {
         super(props);
@@ -14,6 +15,8 @@ class NewBoxForm extends Component {
 
     handleSubmit(evt) {
         evt.preventDefault();
+        
+        
         this.props.addBox(this.state);
     }
 

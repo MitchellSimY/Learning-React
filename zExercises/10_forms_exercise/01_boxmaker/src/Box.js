@@ -7,6 +7,7 @@ class Box extends Component {
             backgroundColor: `${this.props.color}`,
             width: `${this.props.width}em`,
             height: `${this.props.height}em`
+            
         }
         this.handleClick = this.handleClick.bind(this);
     }
@@ -18,9 +19,8 @@ class Box extends Component {
 
     render() {
         return (
-
-            <div style={this.state}><p onClick={this.handleClick}>x</p></div>
-
+            <div style={this.state} key={this.props.key}>
+            <p onClick={this.handleClick}>x</p></div>
         )
     }
 }
