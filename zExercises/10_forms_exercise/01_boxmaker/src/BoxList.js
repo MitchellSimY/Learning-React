@@ -20,8 +20,10 @@ class BoxList extends Component {
         return false;
     }
 
-    removeBox(box) {
-        console.log(`removing ${box.target.key}`);
+    removeBox(id) {
+        this.setState ({
+            boxes: this.state.boxes.filter(box => box.id !== id)
+        });
 
         return false;
     }
@@ -33,7 +35,8 @@ class BoxList extends Component {
                     <Box color={boxes.color}
                         height={boxes.height}
                         width={boxes.width}
-                        removeBox={this.removeBox}
+                        removeBox={() => this.removeBox(boxes.id)}
+                        key = {boxes.id}
                     />
                 ))}
             </div>

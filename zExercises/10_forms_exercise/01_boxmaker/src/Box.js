@@ -9,18 +9,18 @@ class Box extends Component {
             height: `${this.props.height}em`
             
         }
-        this.handleClick = this.handleClick.bind(this);
+        // this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(evt) {
-        this.props.removeBox(this.state);
-        return false;
-    }
+    // handleClick(evt) {
+    //     this.props.removeBox(this.state);
+    //     return false;
+    // }
 
     render() {
         return (
             <div style={this.state} key={this.props.key}>
-            <p onClick={this.handleClick}>x</p></div>
+            <p onClick={this.props.removeBox}>x</p></div>
         )
     }
 }

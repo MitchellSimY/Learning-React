@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { uuid } from 'uuidv4';
 
 class NewBoxForm extends Component {
     constructor(props) {
@@ -15,9 +15,10 @@ class NewBoxForm extends Component {
 
     handleSubmit(evt) {
         evt.preventDefault();
-        
-        
-        this.props.addBox(this.state);
+        let id = uuid();
+        const newBox = { ...this.state, id};
+
+        this.props.addBox(newBox);
     }
 
     handleChange(evt) {
@@ -48,9 +49,9 @@ class NewBoxForm extends Component {
 
                     <button>Add new box!</button>
                 </form>
-                {this.state.color}
+                {/* {this.state.color} */}
 
-                
+
             </div>
         )
     }
