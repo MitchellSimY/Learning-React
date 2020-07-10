@@ -5,19 +5,14 @@ import Todo from "./Todo";
 class TodoList extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             todoList: []
         };
-
         this.addList = this.addList.bind(this);
     }
 
 
     addList(incomingList) {
-        // console.log(`Adding todo! ${list.todo}`);
-        // console.log(`Adding todo! ${list.id}`);
-
         this.setState(state => ({
             todoList: [...this.state.todoList, incomingList]
         }))
@@ -37,11 +32,18 @@ class TodoList extends Component {
         )
     }
 
+    editTodo() {
+
+    }
+    
+    removeTodo(id) {
+
+    }
+
     render() {
         return (
             <div>
-                <p>TodoList Component</p>
-                
+                <h1>My Todo List!</h1>
                 {this.renderList()}
                 <NewToDoForm addListFunction={this.addList} />
             </div>

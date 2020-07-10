@@ -9,11 +9,14 @@ class Todo extends Component {
         }
     }
 
+    
+
     render() {
         return (
             <div>
-                <h2><li>{this.state.todo}</li></h2>
-                
+                <h3><li>{this.state.todo}
+                <button>Edit!</button>
+                <button>Remove!</button></li></h3>
             </div>
         )
     }
