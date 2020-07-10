@@ -1,5 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import NewToDoForm from "./NewTodoForm";
+import Todo from "./Todo";
 
 class TodoList extends Component {
     constructor(props) {
@@ -13,21 +14,36 @@ class TodoList extends Component {
     }
 
 
-    addList(list) {
+    addList(incomingList) {
         // console.log(`Adding todo! ${list.todo}`);
-        
-    
+        // console.log(`Adding todo! ${list.id}`);
+
+        this.setState(state => ({
+            todoList: [...this.state.todoList, incomingList]
+        }))
+
+        return false;
     }
 
     renderList() {
-
+        return (
+            <div>
+                {this.state.todoList.map(list => (
+                    <Todo todo={list.todo}
+                        key={list.id}
+                    />
+                ))}
+            </div>
+        )
     }
 
     render() {
-        return( 
+        return (
             <div>
                 <p>TodoList Component</p>
-                <NewToDoForm addListFunction={this.addList}/>
+                
+                {this.renderList()}
+                <NewToDoForm addListFunction={this.addList} />
             </div>
         )
     }
