@@ -34,6 +34,7 @@ class Todo extends Component {
 
     handleSubmit(evt) {
         let editedTodoName = evt.target.todo.value;
+        console.log(editedTodoName);
         this.setState({
             isEditing: false,
         })
