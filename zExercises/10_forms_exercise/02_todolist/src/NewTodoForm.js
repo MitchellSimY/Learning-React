@@ -21,6 +21,7 @@ class NewTodoForm extends Component {
     }
 
     handleChange(evt) {
+        console.log("gang");
         this.setState({
             [evt.target.name]: evt.target.value
         });
@@ -33,7 +34,6 @@ class NewTodoForm extends Component {
                 <label>New Todo!</label> <br></br>
                 <input type="text"
                     name="todo"
-                    value={this.state.todo}
                     onChange={this.handleChange}
                 />
                 <button>Add</button>

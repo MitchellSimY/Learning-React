@@ -27,14 +27,15 @@ class TodoList extends Component {
                     <Todo todo={list.todo}
                         key={list.id}
                         removeTodo={() => this.removeTodo(list.id)}
+                        editTodo={() => this.editTodo(list.id)}
                     />
                 ))}
             </div>
         )
     }
 
-    editTodo() {
-
+    editTodo(id) {
+        console.log(id);
     }
     
     removeTodo(id) {
