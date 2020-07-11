@@ -24,6 +24,7 @@ class Todo extends Component {
         this.setState({
             isEditing: true
         })
+        re
     }
 
     onSubmit(evt) {
@@ -42,7 +43,10 @@ class Todo extends Component {
         })
     }
 
+    
+
     render() {
+        
         return (
             <div>
                 <h3><li>
@@ -52,9 +56,9 @@ class Todo extends Component {
                         onChange={this.handleChange}
                     />}
 
-                    {this.state.isEditing === false ?
+                    {/* {this.state.isEditing === false ?
                         <button name="edit" onClick={this.handleEvent}>Edit!</button> :
-                        <button name="done" onClick={this.onSubmit}>Done!</button>}
+                        <button name="done" onClick={this.onSubmit}>Done!</button>} */}
 
                     <button name="remove" onClick={this.props.removeTodo}>Remove!</button></li></h3>
             </div>
