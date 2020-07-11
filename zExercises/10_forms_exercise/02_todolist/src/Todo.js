@@ -9,14 +9,16 @@ class Todo extends Component {
         }
     }
 
-    
+    handleEvent(evt) {
+        
+    }
 
     render() {
         return (
             <div>
                 <h3><li>{this.state.todo}
-                <button>Edit!</button>
-                <button>Remove!</button></li></h3>
+                    <button name="edit" onClick={this.handleEvent}>Edit!</button>
+                    <button name="remove" onClick={this.handleEvent}>Remove!</button></li></h3>
             </div>
         )
     }
