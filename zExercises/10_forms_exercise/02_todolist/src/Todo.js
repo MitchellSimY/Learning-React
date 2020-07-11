@@ -10,7 +10,7 @@ class Todo extends Component {
     }
 
     handleEvent(evt) {
-        
+
     }
 
     render() {
@@ -18,7 +18,7 @@ class Todo extends Component {
             <div>
                 <h3><li>{this.state.todo}
                     <button name="edit" onClick={this.handleEvent}>Edit!</button>
-                    <button name="remove" onClick={this.handleEvent}>Remove!</button></li></h3>
+                    <button name="remove" onClick={this.props.removeTodo}>Remove!</button></li></h3>
             </div>
         )
     }

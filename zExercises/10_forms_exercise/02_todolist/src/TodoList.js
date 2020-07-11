@@ -26,6 +26,7 @@ class TodoList extends Component {
                 {this.state.todoList.map(list => (
                     <Todo todo={list.todo}
                         key={list.id}
+                        removeTodo={() => this.removeTodo(list.id)}
                     />
                 ))}
             </div>
@@ -37,7 +38,9 @@ class TodoList extends Component {
     }
     
     removeTodo(id) {
-
+        this.setState({
+            todoList: this.state.todoList.filter(list => list.id !== id)
+        })
     }
 
     render() {
