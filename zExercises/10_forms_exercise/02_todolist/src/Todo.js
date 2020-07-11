@@ -9,58 +9,56 @@ class Todo extends Component {
             isEditing: false
         }
         this.handleEvent = this.handleEvent.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleEvent.bind(this);
     }
 
-
-
     handleEvent(evt) {
-        this.appearEditBox();
-        
-    }
-
-    appearEditBox(todoDetails) {
         this.setState({
             isEditing: true
         })
-        re
+        this.appearEditBox();
     }
 
-    onSubmit(evt) {
-        console.log(evt.target.name)
+    appearEditBox() {
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <input type="text"
+                    name="todo"
+                    onChange={this.handleChange}/>
+                <button>Done!</button>
+            </form>
+
+        )
+    }
+
+    handleSubmit(evt) {
+        let editedTodoName = evt.target.todo.value;
         this.setState({
             isEditing: false,
-
         })
+        this.props.editTodo(editedTodoName);
     }
 
-    handleChange(evt) {
-        console.log("gang!");
-        console.log(evt.target.name);
-        this.setState({
-            [evt.target.name]: evt.target.value
-        })
-    }
 
-    
-
-    render() {
-        
+    todoDisplay() {
         return (
             <div>
                 <h3><li>
-                    {/* {this.state.todo} */}
-                    {this.state.isEditing === false ? `${this.state.todo}` : <input type="text"
-                        name="todo"
-                        onChange={this.handleChange}
-                    />}
+                    {this.state.todo}{this.state.isEditing === false ?
+                        <button name="edit" onClick={this.handleEvent}>Edit!</button> : this.appearEditBox()}
 
-                    {/* {this.state.isEditing === false ?
-                        <button name="edit" onClick={this.handleEvent}>Edit!</button> :
-                        <button name="done" onClick={this.onSubmit}>Done!</button>} */}
+                    <button name="remove" onClick={this.props.removeTodo}>Remove!</button></li> </h3>
 
-                    <button name="remove" onClick={this.props.removeTodo}>Remove!</button></li></h3>
+            </div>
+        )
+    }
+
+
+    render() {
+        return (
+            <div>
+                {this.state.isEditing === false ? this.todoDisplay() : this.appearEditBox()}
             </div>
         )
     }
