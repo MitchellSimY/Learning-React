@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Todo.css";
 
 class Todo extends Component {
     constructor(props) {
@@ -6,7 +7,8 @@ class Todo extends Component {
         this.state = {
             todo: `${this.props.todo}`,
             id: `${this.props.key}`,
-            isEditing: false
+            isEditing: false,
+            
         }
         this.handleEvent = this.handleEvent.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -14,10 +16,17 @@ class Todo extends Component {
     }
 
     handleEvent(evt) {
-        this.setState({
-            isEditing: true
-        })
-        this.appearEditBox();
+        let action = evt.target.name;
+        if (action = "edit") {
+            this.setState({
+                isEditing: true
+            })
+            this.appearEditBox();
+        } else if (action = "completed") {
+            this.setState({
+                isEditing: true
+            })
+        }
     }
 
     appearEditBox() {
@@ -25,7 +34,7 @@ class Todo extends Component {
             <form onSubmit={this.handleSubmit}>
                 <input type="text"
                     name="todo"
-                    onChange={this.handleChange}/>
+                    onChange={this.handleChange} />
                 <button>Done!</button>
             </form>
 
@@ -34,9 +43,9 @@ class Todo extends Component {
 
     handleSubmit(evt) {
         let editedTodoName = evt.target.todo.value;
-        console.log(editedTodoName);
         this.setState({
             isEditing: false,
+            todo: editedTodoName
         })
         this.props.editTodo(editedTodoName);
     }
@@ -45,11 +54,17 @@ class Todo extends Component {
     todoDisplay() {
         return (
             <div>
-                <h3><li>
-                    {this.state.todo}{this.state.isEditing === false ?
-                        <button name="edit" onClick={this.handleEvent}>Edit!</button> : this.appearEditBox()}
+                <h3>
+                    <li className={this.props.completed ? 'completed' : ""}>
+                        {this.state.todo}
+                        {this.state.isEditing === false ?
+                            <button name="edit" onClick={this.handleEvent}>Edit!</button> :
+                            this.appearEditBox()}
 
-                    <button name="remove" onClick={this.props.removeTodo}>Remove!</button></li> </h3>
+                        <button name="remove" onClick={this.props.removeTodo}>Remove!</button>
+                        <button name="completed" onClick={this.completed}>Completed!</button>
+                    </li>
+                </h3>
 
             </div>
         )

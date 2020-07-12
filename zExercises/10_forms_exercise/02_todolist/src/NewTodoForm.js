@@ -15,13 +15,12 @@ class NewTodoForm extends Component {
         evt.preventDefault();
 
         let id = uuid();
-        const newTodoListItem = {...this.state,id};
+        const newTodoListItem = {...this.state,id, isCompleted: false};
 
         this.props.addListFunction(newTodoListItem);
     }
 
     handleChange(evt) {
-        console.log("gang");
         this.setState({
             [evt.target.name]: evt.target.value
         });

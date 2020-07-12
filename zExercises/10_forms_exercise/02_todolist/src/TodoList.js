@@ -26,6 +26,7 @@ class TodoList extends Component {
                 {this.state.todoList.map(list => (
                     <Todo todo={list.todo}
                         key={list.id}
+                        completed={list.completed}
                         removeTodo={() => this.removeTodo(list.id)}
                         editTodo={() => this.editTodo(list.id)}
                     />
