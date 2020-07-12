@@ -8,7 +8,7 @@ class Todo extends Component {
             todo: `${this.props.todo}`,
             id: `${this.props.key}`,
             isEditing: false,
-            
+            isCompleted: `${this.props.completed}`
         }
         this.handleEvent = this.handleEvent.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,15 +17,19 @@ class Todo extends Component {
 
     handleEvent(evt) {
         let action = evt.target.name;
-        if (action = "edit") {
+        console.log(action);
+        if (action == "edit") {
             this.setState({
                 isEditing: true
             })
             this.appearEditBox();
-        } else if (action = "completed") {
+        } else if (action == "completed") {
+            console.log("completed step.");
+
             this.setState({
-                isEditing: true
+                isCompleted: true
             })
+            
         }
     }
 
@@ -55,14 +59,14 @@ class Todo extends Component {
         return (
             <div>
                 <h3>
-                    <li className={this.props.completed ? 'completed' : ""}>
+                    <li className={this.state.isCompleted === true ? "Completed" : ""}>
                         {this.state.todo}
                         {this.state.isEditing === false ?
                             <button name="edit" onClick={this.handleEvent}>Edit!</button> :
                             this.appearEditBox()}
 
                         <button name="remove" onClick={this.props.removeTodo}>Remove!</button>
-                        <button name="completed" onClick={this.completed}>Completed!</button>
+                        <button name="completed" onClick={this.handleEvent}>Completed!</button>
                     </li>
                 </h3>
 
