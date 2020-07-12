@@ -28,17 +28,13 @@ class TodoList extends Component {
                         key={list.id}
                         completed={list.isCompleted}
                         removeTodo={() => this.removeTodo(list.id)}
-                        editTodo={() => this.editTodo(list.id)}
+
                     />
                 ))}
             </div>
         )
     }
 
-    editTodo(id) {
-        console.log("BACKACK");
-        console.log(id); 
-    }
     
     removeTodo(id) {
         this.setState({

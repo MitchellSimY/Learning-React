@@ -17,14 +17,14 @@ class Todo extends Component {
 
     handleEvent(evt) {
         let action = evt.target.name;
-        console.log(action);
+        // console.log(action);
         if (action == "edit") {
             this.setState({
                 isEditing: true
             })
             this.appearEditBox();
         } else if (action == "completed") {
-            console.log("completed step.");
+            // console.log("completed step.");
 
             this.setState({
                 isCompleted: true
@@ -51,7 +51,6 @@ class Todo extends Component {
             isEditing: false,
             todo: editedTodoName
         })
-        this.props.editTodo(editedTodoName);
     }
 
 
