@@ -15,7 +15,17 @@ class ScoreTable extends Component {
           <h2>Upper</h2>
           <table cellSpacing="0">
             <tbody>
+
+              {/* - Component Breakdown -
+              The component has a name, props of score and doScore.
+              'Score' calls on the prop from Rules.js, which finds the
+              appropriate function in Rules.js and performs it. 
+              
+              Within 'doScore', the event points to doScore the function in 
+              Game.js and does the function there. It's given two parameters.
+              The 'rulename' and ruleFn */}
               <RuleRow name="Ones" score={scores.ones} doScore={evt => doScore("ones", ones.evalRoll)} />
+
               <RuleRow name="Twos" score={scores.twos} doScore={evt => doScore("twos", twos.evalRoll)} />
               <RuleRow name="Threes" score={scores.threes} doScore={evt => doScore("threes", threes.evalRoll)} />
               <RuleRow name="Fours" score={scores.fours} doScore={evt => doScore("fours", fours.evalRoll)} />
