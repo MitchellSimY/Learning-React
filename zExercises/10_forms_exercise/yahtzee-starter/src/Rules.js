@@ -36,12 +36,12 @@ class Rule {
  *
  * Used for rules like "sum of all ones"
  */
-
 class TotalOneNumber extends Rule {
   evalRoll = dice => {
     return this.val * this.count(dice, this.val);
   };
 }
+
 
 /** Given a required # of same dice, return sum of all dice.
  *
@@ -56,9 +56,16 @@ class SumDistro extends Rule {
 }
 
 /** Check if full house (3-of-kind and 2-of-kind) */
+class FullHouse extends Rule {
+  evalRoll = dice => {
 
-class FullHouse {
-  // TODO
+    if ((this.freq(dice)[0] === 3 || this.freq(dice)[0] === 2) &&
+      (this.freq(dice)[1] === 3 || this.freq(dice)[1] === 2)) {
+      return 25;
+    } else {
+      return 0;
+    }
+  }
 }
 
 /** Check for small straights. */
@@ -104,7 +111,7 @@ const threeOfKind = new SumDistro({ count: 3 });
 const fourOfKind = new SumDistro({ count: 4 });
 
 // full house scores as flat 25
-const fullHouse = "TODO";
+const fullHouse = new FullHouse({ score: 25 });
 
 // small/large straights score as 30/40
 const smallStraight = new SmallStraight({ score: 30 });
