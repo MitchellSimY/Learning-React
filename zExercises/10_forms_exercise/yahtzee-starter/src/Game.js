@@ -5,7 +5,7 @@ import "./Game.css";
 
 // Constant variables that define the game attributes like number of dies and available roles.
 const NUM_DICE = 5;
-const NUM_ROLLS = 3;
+const NUM_ROLLS = 100;
 
 class Game extends Component {
   constructor(props) {
