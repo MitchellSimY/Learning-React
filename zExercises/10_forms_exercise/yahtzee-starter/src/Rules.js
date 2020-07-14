@@ -42,12 +42,10 @@ class TotalOneNumber extends Rule {
   };
 }
 
-
 /** Given a required # of same dice, return sum of all dice.
  *
  * Used for rules like "sum of all dice when there is a 3-of-kind"
  */
-
 class SumDistro extends Rule {
   evalRoll = dice => {
     // do any of the counts meet of exceed this distro?
@@ -58,7 +56,6 @@ class SumDistro extends Rule {
 /** Check if full house (3-of-kind and 2-of-kind) */
 class FullHouse extends Rule {
   evalRoll = dice => {
-
     if ((this.freq(dice)[0] === 3 || this.freq(dice)[0] === 2) &&
       (this.freq(dice)[1] === 3 || this.freq(dice)[1] === 2)) {
       return 25;
@@ -69,7 +66,6 @@ class FullHouse extends Rule {
 }
 
 /** Check for small straights. */
-
 class SmallStraight {
   evalRoll = dice => {
     const d = new Set(dice);
@@ -78,7 +74,6 @@ class SmallStraight {
 }
 
 /** Check for large straights. */
-
 class LargeStraight extends Rule {
   evalRoll = dice => {
     const d = new Set(dice);
@@ -90,7 +85,6 @@ class LargeStraight extends Rule {
 }
 
 /** Check if all dice are same. */
-
 class Yahtzee extends Rule {
   evalRoll = dice => {
     // all dice must be the same
