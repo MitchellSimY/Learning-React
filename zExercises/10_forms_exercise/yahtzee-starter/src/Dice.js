@@ -6,7 +6,9 @@ class Dice extends Component {
   render() {
     return <div className="Dice">
       {this.props.dice.map((d, idx) =>
-        <Die handleClick={this.props.handleClick}
+      // Fixed the toggle on dice issue. The Game.js->toggleLocked(idx) was
+      // not being passed a parameter. 
+        <Die handleClick={() => this.props.handleClick(idx)}
           val={d}
           locked={this.props.locked[idx]}
           idx={idx}

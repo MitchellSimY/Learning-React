@@ -55,19 +55,6 @@ class Game extends Component {
       rollsLeft: st.rollsLeft - 1
     }));
   }
-
-  // function that toggles lock for Die?
-  toggleLocked(idx) {
-    // toggle whether idx is in locked or not
-    this.setState(st => ({
-      locked: [
-        ...st.locked.slice(0, idx),
-        !st.locked[idx],
-        ...st.locked.slice(idx + 1)
-      ]
-    }));
-  }
-
   // Function that does the score. 
   // It's given the rule name and the rule function.
   // The rulename is utilized to point the the state name.
@@ -84,15 +71,26 @@ class Game extends Component {
     this.roll();
   }
 
+  // function that toggles lock for Die?
+  toggleLocked(idx) {
+    // toggle whether idx is in locked or not
+    console.log(idx)
+    this.setState(st => ({
+      locked: [
+        ...st.locked.slice(0, idx),
+        !st.locked[idx],
+        ...st.locked.slice(idx + 1)]
+    }));
+  }
+
   render() {
     return (
       <div className='Game'>
         <header className='Game-header'>
           <h1 className='App-title'>Yahtzee!</h1>
-
           <section className='Game-dice-section'>
 
-          {/* Dice component that then goes into the Die component.
+            {/* Dice component that then goes into the Die component.
           Dice component is given props of the dice state, whethere it's locked,
           and a handleClick. */}
             <Dice
@@ -113,7 +111,7 @@ class Game extends Component {
             </div>
           </section>
         </header>
-        
+
         {/* Score table component. Reaches for function called doScore
         and has a state which signifies the score. */}
         <ScoreTable doScore={this.doScore} scores={this.state.scores} />
