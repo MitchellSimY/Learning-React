@@ -56,12 +56,19 @@ class SumDistro extends Rule {
 /** Check if full house (3-of-kind and 2-of-kind) */
 class FullHouse extends Rule {
   evalRoll = dice => {
-    if ((this.freq(dice)[0] === 3 || this.freq(dice)[0] === 2) &&
-      (this.freq(dice)[1] === 3 || this.freq(dice)[1] === 2)) {
-      return 25;
-    } else {
-      return 0;
-    }
+    // if ((this.freq(dice)[0] === 3 || this.freq(dice)[0] === 2) &&
+    //   (this.freq(dice)[1] === 3 || this.freq(dice)[1] === 2)) {
+    //   return 25;
+    // } else {
+    //   return 0;
+    // }
+
+    // Smarter way of doing it.
+    // Here, there was a variable created call freq = this.freq(dice)
+    let freqs = this.freq(dice)
+    // if the lenght = 2, and includes a 3 and 2, pump the score. duh
+    return freqs.length === 2 && freqs.includes(3) && freqs.includes(2) ?
+      this.score : 0;
   }
 }
 
