@@ -79,6 +79,7 @@ class SmallStraight {
   evalRoll = dice => {
     for (let die of dice) {
       if (dice.includes(die + 1) && dice.includes(die + 2) && dice.includes(die + 3)) {
+        console.log(this.score);
         return this.score;
       } 
     }
