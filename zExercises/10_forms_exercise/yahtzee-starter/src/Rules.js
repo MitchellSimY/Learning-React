@@ -76,13 +76,16 @@ class FullHouse extends Rule {
 // Small straight needs 4 sequential dice. 
 // 1234, 2345, 3456, 
 class SmallStraight {
+
   evalRoll = dice => {
+    console.log(this.score);
     for (let die of dice) {
       if (dice.includes(die + 1) && dice.includes(die + 2) && dice.includes(die + 3)) {
-        console.log(this.score);
-        return this.score;
+        
+        return this.scores;
       } 
     }
+    return 0;
   }
 }
 
@@ -122,6 +125,7 @@ const fullHouse = new FullHouse({ score: 25 });
 
 // small/large straights score as 30/40
 const smallStraight = new SmallStraight({ score: 30 });
+//const smallStraight = new SmallStraight({ score: 30 });
 const largeStraight = new LargeStraight({ score: 40 });
 
 // yahtzee scores as 50
