@@ -77,8 +77,11 @@ class FullHouse extends Rule {
 // 1234, 2345, 3456, 
 class SmallStraight {
   evalRoll = dice => {
-    const d = new Set(dice);
-    return 200;
+    for (let die of dice) {
+      if (dice.includes(die + 1) && dice.includes(die + 2) && dice.includes(die + 3)) {
+        return this.score;
+      } 
+    }
   }
 }
 
