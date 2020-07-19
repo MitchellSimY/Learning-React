@@ -75,15 +75,13 @@ class FullHouse extends Rule {
 /** Check for small straights. */
 // Small straight needs 4 sequential dice. 
 // 1234, 2345, 3456, 
-class SmallStraight {
+class SmallStraight extends Rule {
 
-  evalRoll = dice => {
-    console.log(this.score);
+  evalRoll = (dice) => {
     for (let die of dice) {
       if (dice.includes(die + 1) && dice.includes(die + 2) && dice.includes(die + 3)) {
-        
-        return this.scores;
-      } 
+        return this.score;
+      }
     }
     return 0;
   }
