@@ -73,6 +73,8 @@ class FullHouse extends Rule {
 }
 
 /** Check for small straights. */
+// Small straight needs 4 sequential dice. 
+// 1234, 2345, 3456, 
 class SmallStraight {
   evalRoll = dice => {
     const d = new Set(dice);
