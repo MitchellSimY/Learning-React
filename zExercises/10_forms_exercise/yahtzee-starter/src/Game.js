@@ -43,9 +43,6 @@ class Game extends Component {
 
   roll(evt) {
     // roll dice whose indexes are in reroll
-    // If statement that allows the button to be pressed
-    // if the rollsLeft is greater than 0.
-    // if (this.state.rollsLeft > 0) {
     this.setState(st => ({
       // Dice state.
       // If die is not locked at index, then assign random number from 1-6 
@@ -57,9 +54,6 @@ class Game extends Component {
       // subtracting one from rolls.
       rollsLeft: st.rollsLeft - 1
     }));
-    // } else {
-    //   return null;
-    // }
   }
   // Function that does the score. 
   // It's given the rule name and the rule function.
