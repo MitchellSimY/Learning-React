@@ -42,6 +42,7 @@ class Game extends Component {
   }
 
   roll(evt) {
+
     // roll dice whose indexes are in reroll
     this.setState(st => ({
       // Dice state.
@@ -75,7 +76,6 @@ class Game extends Component {
 
 
     } else if (this.state.scores[rulename] !== undefined) {
-
       return null;
     }
 
