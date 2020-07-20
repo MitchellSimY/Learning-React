@@ -45,28 +45,28 @@ class Game extends Component {
     // roll dice whose indexes are in reroll
     // If statement that allows the button to be pressed
     // if the rollsLeft is greater than 0.
-    if (this.state.rollsLeft > 0) {
-      this.setState(st => ({
-        // Dice state.
-        // If die is not locked at index, then assign random number from 1-6 
-        dice: st.dice.map((d, i) =>
-          st.locked[i] ? d : Math.ceil(Math.random() * 6)
-        ),
-        // if rollsleft = 0, every die is locked.
-        locked: st.rollsLeft > 1 ? st.locked : Array(NUM_DICE).fill(true),
-        // subtracting one from rolls.
-        rollsLeft: st.rollsLeft - 1
-      }));
-    } else {
-      return null;
-    }
+    // if (this.state.rollsLeft > 0) {
+    this.setState(st => ({
+      // Dice state.
+      // If die is not locked at index, then assign random number from 1-6 
+      dice: st.dice.map((d, i) =>
+        st.locked[i] ? d : Math.ceil(Math.random() * 6)
+      ),
+      // if rollsleft = 0, every die is locked.
+      locked: st.rollsLeft > 1 ? st.locked : Array(NUM_DICE).fill(true),
+      // subtracting one from rolls.
+      rollsLeft: st.rollsLeft - 1
+    }));
+    // } else {
+    //   return null;
+    // }
   }
   // Function that does the score. 
   // It's given the rule name and the rule function.
   // The rulename is utilized to point the the state name.
   // the ruleFn is a function that provides value to the state variable.
   doScore(rulename, ruleFn) {
-    // if (this.state.scores[rulename] === undefined) {
+    if (this.state.scores[rulename] === undefined) {
       // evaluate this ruleFn with the dice and score this rulename
       this.setState(st => ({
 
@@ -80,10 +80,10 @@ class Game extends Component {
       this.roll();
 
 
-    // } else if (this.state.scores[rulename] !== undefined ){
+    } else if (this.state.scores[rulename] !== undefined) {
 
-    //   return null;
-    // }
+      return null;
+    }
 
 
 
@@ -122,7 +122,7 @@ class Game extends Component {
             <div className='Game-button-wrapper'>
               <button
                 className='Game-reroll'
-                disabled={this.state.locked.every(x => x)}
+                disabled={this.state.locked.every(x => x) || this.state.rollsLeft === 0}
                 onClick={this.roll}
               >
                 {this.state.rollsLeft} Rerolls Left
