@@ -8,8 +8,10 @@
  * frequencies of dice. These are used by subclassed rules.
  */
 
+ // Rules are completed.
 class Rule {
   constructor(params) {
+
     // put all properties in params on instance
     Object.assign(this, params);
   }
