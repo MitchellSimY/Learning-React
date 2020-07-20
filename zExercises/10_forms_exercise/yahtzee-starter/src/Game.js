@@ -66,7 +66,7 @@ class Game extends Component {
   // The rulename is utilized to point the the state name.
   // the ruleFn is a function that provides value to the state variable.
   doScore(rulename, ruleFn) {
-    if (this.state.scores[rulename] === undefined) {
+    // if (this.state.scores[rulename] === undefined) {
       // evaluate this ruleFn with the dice and score this rulename
       this.setState(st => ({
 
@@ -76,17 +76,17 @@ class Game extends Component {
         rollsLeft: NUM_ROLLS,
         // No locked dies afterwards either.
         locked: Array(NUM_DICE).fill(false)
-        
       }));
-      
-      
-    } else {
-
-      return null;
-    }
+      this.roll();
 
 
-    this.roll();
+    // } else if (this.state.scores[rulename] !== undefined ){
+
+    //   return null;
+    // }
+
+
+
 
   }
 
