@@ -27,13 +27,21 @@ class ScoreTable extends Component {
               
               'name'.evalRoll is a "function" of sorts that points
               to a class with a function.*/}
-              <RuleRow name="Ones" score={scores.ones} doScore={evt => doScore("ones", ones.evalRoll)} />
+              <RuleRow name="Ones"
+                description={ones.description}
+                score={scores.ones} doScore={evt => doScore("ones", ones.evalRoll)} />
 
-              <RuleRow name="Twos" score={scores.twos} doScore={evt => doScore("twos", twos.evalRoll)} />
-              <RuleRow name="Threes" score={scores.threes} doScore={evt => doScore("threes", threes.evalRoll)} />
-              <RuleRow name="Fours" score={scores.fours} doScore={evt => doScore("fours", fours.evalRoll)} />
-              <RuleRow name="Fives" score={scores.fives} doScore={evt => doScore("fives", fives.evalRoll)} />
-              <RuleRow name="Sixes" score={scores.sixes} doScore={evt => doScore("sixes", sixes.evalRoll)} />
+              <RuleRow name="Twos"
+                description={twos.description}
+                score={scores.twos} doScore={evt => doScore("twos", twos.evalRoll)} />
+              <RuleRow name="Threes"
+                description={threes.description} score={scores.threes} doScore={evt => doScore("threes", threes.evalRoll)} />
+              <RuleRow name="Fours"
+                description={fours.description} score={scores.fours} doScore={evt => doScore("fours", fours.evalRoll)} />
+              <RuleRow name="Fives"
+                description={fives.description} score={scores.fives} doScore={evt => doScore("fives", fives.evalRoll)} />
+              <RuleRow name="Sixes"
+                description={sixes.description} score={scores.sixes} doScore={evt => doScore("sixes", sixes.evalRoll)} />
             </tbody>
           </table>
         </section>
@@ -43,17 +51,26 @@ class ScoreTable extends Component {
             <tbody>
               {/* Again, the doScore function goes into the Rules component
               then calls on the threeOfKind class, and then the evalRoll function. */}
-              <RuleRow name="Three of Kind" score={scores.threeOfKind} doScore={evt => doScore("threeOfKind", threeOfKind.evalRoll)} />
-              <RuleRow name="Four of Kind" score={scores.fourOfKind} doScore={evt => doScore("fourOfKind", fourOfKind.evalRoll)} />
-              
+              <RuleRow name="Three of Kind"
+                description={threeOfKind.description}
+                score={scores.threeOfKind} doScore={evt => doScore("threeOfKind", threeOfKind.evalRoll)} />
+              <RuleRow name="Four of Kind"
+                description={fourOfKind.description} score={scores.fourOfKind} doScore={evt => doScore("fourOfKind", fourOfKind.evalRoll)} />
+
               {/* FIXED */}
-              <RuleRow name="Full House" score={scores.fullHouse} doScore={evt => doScore("fullHouse", fullHouse.evalRoll)} />
-              
+              <RuleRow name="Full House"
+                description={fullHouse.description}
+                score={scores.fullHouse} doScore={evt => doScore("fullHouse", fullHouse.evalRoll)} />
+
               {/* FIX */}
-              <RuleRow name="Small Straight" score={scores.smallStraight} doScore={evt => doScore("smallStraight", smallStraight.evalRoll)} />
-              <RuleRow name="Large Straight" score={scores.largeStraight} doScore={evt => doScore("largeStraight", largeStraight.evalRoll)} />
-              <RuleRow name="Yahtzee" score={scores.yahtzee} doScore={evt => doScore("yahtzee", yahtzee.evalRoll)} />
-              <RuleRow name="Chance" score={scores.chance} doScore={evt => doScore("chance", chance.evalRoll)} />
+              <RuleRow name="Small Straight"
+                description={smallStraight.description} score={scores.smallStraight} doScore={evt => doScore("smallStraight", smallStraight.evalRoll)} />
+              <RuleRow name="Large Straight"
+                description={largeStraight.description} score={scores.largeStraight} doScore={evt => doScore("largeStraight", largeStraight.evalRoll)} />
+              <RuleRow name="Yahtzee"
+                description={yahtzee.description} score={scores.yahtzee} doScore={evt => doScore("yahtzee", yahtzee.evalRoll)} />
+              <RuleRow name="Chance"
+                description={chance.description} score={scores.chance} doScore={evt => doScore("chance", chance.evalRoll)} />
             </tbody>
           </table>
         </section>
