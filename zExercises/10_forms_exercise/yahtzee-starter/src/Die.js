@@ -15,4 +15,5 @@ class Die extends Component {
   }
 }
 
+
 export default Die;
