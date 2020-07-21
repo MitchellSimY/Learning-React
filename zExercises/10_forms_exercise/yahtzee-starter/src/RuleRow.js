@@ -3,6 +3,7 @@ import './RuleRow.css'
 
 class RuleRow extends Component {
   render() {
+    // Notice these next two lines and how they define the rest of the component.
     const { score, name, doScore, description } = this.props;
     const disabled = score != undefined;
     
