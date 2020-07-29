@@ -5,7 +5,10 @@ class ZenQuote extends Component {
     componentDidMount () {
         //load data
         axios.get("https://api.github.com/zen").then(response => {
-            console.log(response);
+            console.log(response.data);
+            this.setState({
+                quote: response.data
+            });
         })
 
         // set state with data.
@@ -16,7 +19,7 @@ class ZenQuote extends Component {
         return (
             <div>
                 <h1>Quote: </h1>
-                {/* <p>{this.state.quote}</p> */}
+                <p>{this.state.quote}</p>
             </div>
         )
     }
