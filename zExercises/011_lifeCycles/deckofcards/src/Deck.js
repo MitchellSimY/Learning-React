@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Card from "./Card";
+
 const API_URL = 'https://deckofcardsapi.com/api/deck/new/shuffle/';
+
 
 class Deck extends Component {
     constructor(props) {
@@ -20,7 +23,7 @@ class Deck extends Component {
         let assignedDeck = `https://deckofcardsapi.com/api/deck/${deck.data.deck_id}/draw/`
 
         let deckData = await axios.get(assignedDeck);
-        console.log(deckData);
+        console.log(deckData.data);
 
     }
 
@@ -28,6 +31,7 @@ class Deck extends Component {
         return (
             <div>
                 <h1>Test</h1>
+                <Card />
             </div>
         )
     }
