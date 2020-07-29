@@ -9,7 +9,8 @@ function App() {
     <div className="App">
       {/* <Timer /> */}
       {/* <ZenQuote /> */}
-      <GithubUserInfo username="Mitchelll" />
+      <GithubUserInfo username='colt' />
+      <GithubUserInfo username='mitchellsimy' />
     </div>
   );
 }
