@@ -9,6 +9,8 @@ class Deck extends Component {
     constructor(props) {
         super(props);
         this.state = { deck: null, assignedDeck: null, }
+
+        this.handleClick = this.handleClick.bind(this);
     }
 
     async componentDidMount() {
@@ -27,10 +29,15 @@ class Deck extends Component {
 
     }
 
+    handleClick(evt) {
+        
+    }
+
     render() {
         return (
             <div>
-                <h1>Test</h1>
+                <h1>Deck of Cards</h1>
+                <button onClick={this.handleClick}>Draw</button>
                 <Card />
             </div>
         )
