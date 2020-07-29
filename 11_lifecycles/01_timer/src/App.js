@@ -2,12 +2,14 @@ import React from 'react';
 import './App.css';
 import Timer from './Timer';
 import ZenQuote from "./ZenQuote";
+import GithubUserInfo from "./GithubUserInfo"
 
 function App() {
   return (
     <div className="App">
       {/* <Timer /> */}
-      <ZenQuote />
+      {/* <ZenQuote /> */}
+      <GithubUserInfo username="Mitchelll" />
     </div>
   );
 }
