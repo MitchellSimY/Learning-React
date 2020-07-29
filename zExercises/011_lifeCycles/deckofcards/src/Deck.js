@@ -8,7 +8,7 @@ const API_URL = 'https://deckofcardsapi.com/api/deck/new/shuffle/';
 class Deck extends Component {
     constructor(props) {
         super(props);
-        this.state = { deck: null, assignedDeck: null, }
+        this.state = { deck: null, assignedDeck: null, drawnCards: [] }
 
         this.handleClick = this.handleClick.bind(this);
     }
@@ -20,25 +20,34 @@ class Deck extends Component {
 
         // Setting the state of the deck.
         this.setState({ deck: deck.data });
-        // console.log(deck.data)
 
-        let assignedDeck = `https://deckofcardsapi.com/api/deck/${deck.data.deck_id}/draw/`
+    }
+
+    async handleClick(evt) {
+        let deckId = this.state.deck.deck_id;
+        let assignedDeck = `https://deckofcardsapi.com/api/deck/${deckId}/draw/`;
 
         let deckData = await axios.get(assignedDeck);
-        console.log(deckData.data);
+        let cardInformation = deckData.data.cards;
+        // console.log(cardInformation);
+        this.setState(state => ({
+            drawnCards: [...this.state.drawnCards, cardInformation]
+        }))
+
+        console.log(this.state.drawnCards);
+
 
     }
 
-    handleClick(evt) {
-        
-    }
 
     render() {
+
+        const output = this.state.drawnCards.map(cards => <Card value={cards.[1][0].value}/>);
         return (
             <div>
                 <h1>Deck of Cards</h1>
                 <button onClick={this.handleClick}>Draw</button>
-                <Card />
+                {output}
             </div>
         )
     }
