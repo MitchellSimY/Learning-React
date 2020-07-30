@@ -23,7 +23,7 @@ class JokesList extends Component {
                 jokes: [...this.state.jokes, jokeInfo]
             }))
             i++
-        } while (i != 10)
+        } while (i !== 10)
         console.log(this.state.jokes);
     }
 

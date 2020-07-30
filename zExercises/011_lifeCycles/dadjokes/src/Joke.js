@@ -6,6 +6,9 @@ class Joke extends Component {
     }
 
 
+    // Give upvote and downvote button.
+    // Maybe pass upwards?
+
     render () {
         console.log(this.props.jokeInformation[0].joke)
         return (
