@@ -42,7 +42,7 @@ class Deck extends Component {
 
     render() {
 
-        const output = this.state.drawnCards.map(cards => <Card value={cards.[1][0].value}/>);
+        const output = this.state.drawnCards.map(cards => <Card cardInfo={cards}/>);
         return (
             <div>
                 <h1>Deck of Cards</h1>
