@@ -25,7 +25,6 @@ class JokesList extends Component {
             i++
         } while (i != 10)
         console.log(this.state.jokes);
-
     }
 
 

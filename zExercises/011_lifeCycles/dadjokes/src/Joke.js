@@ -7,9 +7,10 @@ class Joke extends Component {
 
 
     render () {
+        console.log(this.props.jokeInformation[0].joke)
         return (
             <div>
-                <h1>From Joke Component</h1>
+                <p>{this.props.jokeInformation[0].joke}</p>
             </div>
         )
     }
