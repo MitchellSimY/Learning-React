@@ -3,15 +3,16 @@ import axios from "axios";
 
 const API_URL = 'https://icanhazdadjoke.com/';
 
-class Joke extends Component {
+class JokesList extends Component {
     constructor(props) {
         super(props);
         this.state = { jokeInfo: [] }
     }
 
     async componentDidMount() {
-        let getJoke = await axios.get(API_URL);
-        this.setState({jokeInfo: [...getJoke]})
+        let getJoke = await axios.get(API_URL, { headers: { Accept: "application/json" }});
+        console.log(getJoke);
+
     }
 
 
@@ -25,4 +26,4 @@ class Joke extends Component {
     }
 }
 
-export default Joke;
+export default JokesList;
