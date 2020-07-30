@@ -4,10 +4,9 @@ import React, {Component} from "react"
 class Card extends Component {
     constructor(props) {
         super(props);
-        console.log(this.props.cardInfo[0]);
     }
     render() {
-        let card = this.props.cardInfo[0];
+        let card = this.props.cardInfo;
         return <div>
             <img src={card.image} />
         </div>

@@ -25,19 +25,25 @@ class Deck extends Component {
 
     async handleClick(evt) {
         let deckId = this.state.deck.deck_id;
-        let assignedDeck = `${API_BASE_URL}${deckId}/draw/`;
 
-        let deckData = await axios.get(assignedDeck);
-        let cardInformation = deckData.data.cards;
-        // console.log(cardInformation);
-        this.setState(state => ({
-            drawnCards: [...this.state.drawnCards, cardInformation]
-        }))
+        try {
+            let assignedDeck = `${API_BASE_URL}${deckId}/draw/`;
+            let cardData = await axios.get(assignedDeck);
+            if (cardData.data.remaining === 0) {
+                throw new Error("No cards remaining");
+            }
+            let cardInformation = cardData.data.cards[0];
 
-        console.log(this.state.drawnCards);
+            // Setting the state.
+            this.setState(state => ({
+                drawnCards: [...this.state.drawnCards, cardInformation]
+            }))
 
-
+        } catch (err) {
+            alert(err);
+        }
     }
+
 
 
     render() {
