@@ -29,9 +29,11 @@ class Deck extends Component {
         try {
             let assignedDeck = `${API_BASE_URL}${deckId}/draw/`;
             let cardData = await axios.get(assignedDeck);
-            if (cardData.data.remaining === 0) {
+
+            if (!cardData.data.success) {
                 throw new Error("No cards remaining");
             }
+            
             let cardInformation = cardData.data.cards[0];
 
             // Setting the state.
