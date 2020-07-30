@@ -10,10 +10,6 @@ class Card extends Component {
         this._transform = `translate(${xPos}px, ${yPos}px) rotate(${angle}deg)`;
     }
     render() {
-
-
-
-
         let card = this.props.cardInfo;
         return <div className="CardArea">
             <img className="Card" 
