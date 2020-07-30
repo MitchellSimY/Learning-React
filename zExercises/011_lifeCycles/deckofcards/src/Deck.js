@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import axios from "axios";
 import Card from "./Card";
 
-const API_URL = 'https://deckofcardsapi.com/api/deck/new/shuffle/';
+const API_BASE_URL = 'https://deckofcardsapi.com/api/deck/';
 
 
 class Deck extends Component {
     constructor(props) {
         super(props);
-        this.state = { deck: null, assignedDeck: null, drawnCards: [] }
+        this.state = { deck: null, drawnCards: [] }
 
         this.handleClick = this.handleClick.bind(this);
     }
@@ -16,7 +16,7 @@ class Deck extends Component {
     async componentDidMount() {
 
         // Getting the deck url from and assigning it to response.
-        let deck = await axios.get(API_URL);
+        let deck = await axios.get(`${API_BASE_URL}/new/shuffle/`);
 
         // Setting the state of the deck.
         this.setState({ deck: deck.data });
@@ -25,7 +25,7 @@ class Deck extends Component {
 
     async handleClick(evt) {
         let deckId = this.state.deck.deck_id;
-        let assignedDeck = `https://deckofcardsapi.com/api/deck/${deckId}/draw/`;
+        let assignedDeck = `${API_BASE_URL}${deckId}/draw/`;
 
         let deckData = await axios.get(assignedDeck);
         let cardInformation = deckData.data.cards;
@@ -42,7 +42,7 @@ class Deck extends Component {
 
     render() {
 
-        const output = this.state.drawnCards.map(cards => <Card cardInfo={cards}/>);
+        const output = this.state.drawnCards.map(cards => <Card cardInfo={cards} />);
         return (
             <div>
                 <h1>Deck of Cards</h1>

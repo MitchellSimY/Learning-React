@@ -9,7 +9,7 @@ class Card extends Component {
     render() {
         let card = this.props.cardInfo[0];
         return <div>
-            <h2>{card.value} of {card.suit}</h2>
+            <img src={card.image} />
         </div>
     }
 }
