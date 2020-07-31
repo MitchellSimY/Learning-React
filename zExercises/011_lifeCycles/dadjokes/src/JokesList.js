@@ -8,6 +8,7 @@ class JokesList extends Component {
     constructor(props) {
         super(props);
         this.state = { jokes: [] }
+        this.votingFunction = this.votingFunction.bind(this);
     }
 
     async componentDidMount() {
@@ -24,13 +25,15 @@ class JokesList extends Component {
             }))
             i++
         } while (i !== 10)
-        console.log(this.state.jokes);
+        console.table(this.state.jokes);
     }
 
+    votingFunction(evt) {
+        console.log("VOTING BUTTON")
+    }
 
     render() {
-
-        const jokeOutput = this.state.jokes.map(jokes => <Joke jokeInformation={jokes}/>);
+        const jokeOutput = this.state.jokes.map(jokes => <Joke jokeInformation={jokes} vote={this.votingFunction} />);
         return (
             <div>
                 <h1>Test</h1>

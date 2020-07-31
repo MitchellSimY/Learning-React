@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import "./Joke.css";
 
 class Joke extends Component {
     constructor(props) {
@@ -10,10 +11,12 @@ class Joke extends Component {
     // Maybe pass upwards?
 
     render () {
-        console.log(this.props.jokeInformation[0].joke)
+        console.log(this.props.jokeInformation)
         return (
-            <div>
-                <p>{this.props.jokeInformation[0].joke}</p>
+            <div className="JokeBar">
+            <button onClick={this.props.votingFunction}>Up</button>
+            <button>Down</button>
+                {this.props.jokeInformation[0].joke}
             </div>
         )
     }
