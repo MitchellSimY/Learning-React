@@ -4,6 +4,7 @@ import { uuid } from 'uuidv4';
 class NewBoxForm extends Component {
     constructor(props) {
         super(props);
+        
         this.state = {
             width: "",
             height: "",
