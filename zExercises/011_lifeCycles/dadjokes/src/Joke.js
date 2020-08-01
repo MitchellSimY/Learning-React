@@ -14,7 +14,7 @@ class Joke extends Component {
         console.log(this.props.jokeInformation)
         return (
             <div className="JokeBar">
-            <button onClick={this.props.votingFunction}>Up</button>
+            <button onClick={this.props.vote} value="up">Up</button>
             <button>Down</button>
                 {this.props.jokeInformation[0].joke}
             </div>
