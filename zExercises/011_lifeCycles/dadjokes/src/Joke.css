@@ -1,0 +1,10 @@
+.JokeBar {
+    color: green;
+    background-color: white;
+    padding: 5px;
+    border: 1px solid black;
+    text-align: center;
+    width: 1000px;
+    font-family: arial;
+    
+}
