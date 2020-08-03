@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./Joke.css";
 
 class Joke extends Component {
@@ -10,12 +10,13 @@ class Joke extends Component {
     // Give upvote and downvote button.
     // Maybe pass upwards?
 
-    render () {
+    render() {
         console.log(this.props.jokeInformation)
         return (
             <div className="JokeBar">
-            <button onClick={this.props.vote} value="up">Up</button>
-            <button>Down</button>
+                <button onClick={this.props.vote()} value="up">Up</button>
+                
+                <button onClick={this.props.vote()} value="down">Down</button>
                 {this.props.jokeInformation[0].joke}
             </div>
         )

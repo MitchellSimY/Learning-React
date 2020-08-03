@@ -30,10 +30,11 @@ class JokesList extends Component {
 
     votingFunction(evt) {
         console.log(evt.target.value)
+        console.log("gang")
     }
 
     render() {
-        const jokeOutput = this.state.jokes.map(jokes => <Joke jokeInformation={jokes} vote={() => this.votingFunction()} />);
+        const jokeOutput = this.state.jokes.map(jokes => <Joke jokeInformation={jokes} vote={() => this.votingFunction} />);
         return (
             <div>
                 <h1>Test</h1>
