@@ -7,38 +7,42 @@ const API_URL = 'https://icanhazdadjoke.com/';
 class JokesList extends Component {
     constructor(props) {
         super(props);
-        this.state = { jokes: [] }
-        this.votingFunction = this.votingFunction.bind(this);
+        this.state = { jokes: [] };
+        // this.votingFunction = this.votingFunction.bind(this);
     }
+    static defaultProps = {
+        numJokesToGet: 10
+    };
 
     async componentDidMount() {
         // Getting the joke data.
-        let i = 0;
-        do {
-            let getJoke = await axios.get(API_URL, { headers: { Accept: "application/json" } });
-            let jokeData = getJoke.data;
+        let jokeArray = [];
 
-            let score = 0;
-            let jokeInfo = [jokeData, score];
-            this.setState(st => ({
-                jokes: [...this.state.jokes, jokeInfo]
-            }))
-            i++
-        } while (i !== 10)
-        console.table(this.state.jokes);
+        while (jokeArray.length < this.props.numJokesToGet) {
+            let getJoke = await axios.get(API_URL, { headers: { Accept: "application/json" } });
+            let jokeData = getJoke.data.joke;
+
+            jokeArray.push(jokeData);
+        }
+        this.setState({ jokes: jokeArray });
     }
 
     votingFunction(evt) {
         console.log(evt.target.value)
+        // console.log(evt);
+        console.log(evt.target);
         console.log("gang")
     }
 
     render() {
-        const jokeOutput = this.state.jokes.map(jokes => <Joke jokeInformation={jokes} vote={() => this.votingFunction} />);
         return (
-            <div>
-                <h1>Test</h1>
-                {jokeOutput}
+            <div className="JokeList">
+                <h1>Dad Jokes</h1>
+                <div className="JokeList-Jokes">
+                    {this.state.jokes.map(j=> (
+                        <div>{j}</div>
+                    ))}
+                </div>
             </div>
         )
     }

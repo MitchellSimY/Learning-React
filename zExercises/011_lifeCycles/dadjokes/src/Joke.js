@@ -11,7 +11,7 @@ class Joke extends Component {
     // Maybe pass upwards?
 
     render() {
-        console.log(this.props.jokeInformation)
+        
         return (
             <div className="JokeBar">
                 <button onClick={this.props.vote()} value="up">Up</button>
