@@ -11,13 +11,15 @@ class Joke extends Component {
     // Maybe pass upwards?
 
     render() {
-        
+
         return (
-            <div className="JokeBar">
-                <button onClick={this.props.vote()} value="up">Up</button>
-                
-                <button onClick={this.props.vote()} value="down">Down</button>
-                {this.props.jokeInformation[0].joke}
+            <div className="Joke">
+                <div className="Joke-buttons">
+                    <i className="fas fa-arrow-up"></i>
+                    <span>{this.props.vote}</span>
+                    <i className="fas fa-arrow-down"></i>
+                </div>
+                <div className="Joke-text">{this.props.text}</div>
             </div>
         )
     }

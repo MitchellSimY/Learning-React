@@ -23,9 +23,9 @@ class JokesList extends Component {
             let getJoke = await axios.get(API_URL, { headers: { Accept: "application/json" } });
             let jokeData = getJoke.data.joke;
 
-            jokeArray.push(jokeData);
+            jokeArray.push({jokeData, votes: 0});
         }
-        this.setState({ jokes: jokeArray });
+        this.setState({ jokes: jokeArray});
     }
 
     votingFunction(evt) {
@@ -46,7 +46,7 @@ class JokesList extends Component {
 
                 <div className="JokeList-jokes">
                     {this.state.jokes.map(j => (
-                        <div>{j}</div>
+                        <Joke votes={j.votes} text={j.jokeData}/>
                     ))}
                 </div>
             </div>
