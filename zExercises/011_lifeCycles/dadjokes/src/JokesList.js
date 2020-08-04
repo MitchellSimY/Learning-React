@@ -28,11 +28,8 @@ class JokesList extends Component {
         this.setState({ jokes: jokeArray});
     }
 
-    votingFunction(evt) {
-        console.log(evt.target.value)
-        // console.log(evt);
-        console.log(evt.target);
-        console.log("gang")
+    handleVote(id, delta) {
+
     }
 
     render() {
