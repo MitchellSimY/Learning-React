@@ -28,6 +28,7 @@ class JokesList extends Component {
         this.setState({ jokes: jokeArray});
     }
 
+    // Function that handles votes.
     handleVote(id, delta) {
 
     }
