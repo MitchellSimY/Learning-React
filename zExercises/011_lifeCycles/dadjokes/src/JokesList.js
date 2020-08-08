@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Joke from "./Joke"
-import "./JokesList.css"
+import Joke from "./Joke";
+import "./JokesList.css";
+import uuid from "uuid/v4";
 
 const API_URL = 'https://icanhazdadjoke.com/';
 
@@ -23,14 +24,18 @@ class JokesList extends Component {
             let getJoke = await axios.get(API_URL, { headers: { Accept: "application/json" } });
             let jokeData = getJoke.data.joke;
 
-            jokeArray.push({jokeData, votes: 0});
+            jokeArray.push({id: uuid(), jokeData, votes: 0});
         }
         this.setState({ jokes: jokeArray});
     }
 
     // Function that handles votes.
     handleVote(id, delta) {
-
+        this.setState(st => ({
+                jokes: st.jokes.map(j => 
+                    j.id === id ? {...j, votes: j.votes + delta} : j)
+            })
+        );
     }
 
     render() {
@@ -44,7 +49,7 @@ class JokesList extends Component {
 
                 <div className="JokeList-jokes">
                     {this.state.jokes.map(j => (
-                        <Joke votes={j.votes} text={j.jokeData}/>
+                        <Joke key={j.id} votes={j.votes} text={j.jokeData}/>
                     ))}
                 </div>
             </div>
