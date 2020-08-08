@@ -7,19 +7,19 @@ import uuid from "uuid/v4";
 const API_URL = 'https://icanhazdadjoke.com/';
 
 class JokesList extends Component {
-    
-
-
     constructor(props) {
         super(props);
         this.state = { jokes: JSON.parse(window.localStorage.getItem("jokes")) || [] };
         // this.votingFunction = this.votingFunction.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
+
     static defaultProps = {
         numJokesToGet: 10
     };
 
-    async componentDidMount() {
+    async getJokes() {
+
         // Getting the joke data.
         let jokeArray = [];
 
@@ -33,12 +33,21 @@ class JokesList extends Component {
         window.localStorage.setItem("jokes", JSON.stringify(jokeArray));
     }
 
+    handleClick() {
+        this.getJokes();
+    }
+
+    async componentDidMount() {
+        if (this.state.jokes.length === 0) this.getJokes();
+    }
+
     // Function that handles votes.
     handleVote(id, delta) {
         this.setState(st => ({
             jokes: st.jokes.map(j =>
                 j.id === id ? { ...j, votes: j.votes + delta } : j)
-        })
+        }),
+        () => window.localStorage.setItem("jokes", JSON.stringify(this.state.jokes))
         );
     }
 
@@ -48,7 +57,7 @@ class JokesList extends Component {
                 <div className="JokesList-sidebar">
                     <h1 className="JokesList-title"><span>Dad</span> Jokes</h1>
                     <img src='https://assets.dryicons.com/uploads/icon/svg/8927/0eb14c71-38f2-433a-bfc8-23d9c99b3647.svg' />
-                    <button className="JokeList-getmore">New Jokes</button>
+                    <button className="JokeList-getmore" onClick={this.handleClick}>New Jokes</button>
                 </div>
 
                 <div className="JokeList-jokes">
