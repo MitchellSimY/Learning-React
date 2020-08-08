@@ -22,6 +22,7 @@ class Joke extends Component {
             return "#f44336";
         }
     }
+    
     getEmoji() {
         if (this.props.votes >= 15) {
             return "em em-rolling_on_the_floor_laughing";
@@ -46,10 +47,13 @@ class Joke extends Component {
             <div className="Joke">
                 <div className="Joke-buttons">
                     <i className="fas fa-arrow-up" onClick={this.props.upVote}></i>
-                    <span className="Joke-votes" style={{borderColor: this.getColor()}}>{this.props.votes}</span>
+                    <span className="Joke-votes" style={{ borderColor: this.getColor() }}>{this.props.votes}</span>
                     <i className="fas fa-arrow-down" onClick={this.props.downVote}></i>
                 </div>
                 <div className="Joke-text">{this.props.text}</div>
+                <div className='Joke-smiley'>
+                    <i className={this.getEmoji()} />
+                </div>
             </div>
         )
     }
