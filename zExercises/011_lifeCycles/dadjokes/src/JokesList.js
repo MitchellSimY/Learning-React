@@ -15,6 +15,8 @@ class JokesList extends Component {
         };
         // this.votingFunction = this.votingFunction.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.seenJokes = new Set(this.state.jokes.map(j => j.jokes));
+        console.log(this.seenJokes);
     }
 
     static defaultProps = {
@@ -32,6 +34,9 @@ class JokesList extends Component {
 
             jokeArray.push({ id: uuid(), jokeData, votes: 0 });
         }
+
+        // let newJoke = getJoke.data.joke;
+
         this.setState(st => ({
             loading: false,
             jokes: [...st.jokes, ...jokeArray],
