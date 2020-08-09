@@ -9,7 +9,10 @@ const API_URL = 'https://icanhazdadjoke.com/';
 class JokesList extends Component {
     constructor(props) {
         super(props);
-        this.state = { jokes: JSON.parse(window.localStorage.getItem("jokes")) || [] };
+        this.state = {
+            jokes: JSON.parse(window.localStorage.getItem("jokes") || "[]"),
+            loading: false
+        };
         // this.votingFunction = this.votingFunction.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
@@ -29,15 +32,18 @@ class JokesList extends Component {
 
             jokeArray.push({ id: uuid(), jokeData, votes: 0 });
         }
-        this.setState( st => ({ 
-            jokes: [...st.jokes, ...jokeArray]
+        this.setState(st => ({
+            loading: false,
+            jokes: [...st.jokes, ...jokeArray],
         }),
             () => window.localStorage.setItem("jokes", JSON.stringify(this.state.jokes)));
         window.localStorage.setItem("jokes", JSON.stringify(jokeArray));
     }
 
     handleClick() {
-        this.getJokes();
+        this.setState({ loading: true });
+        this.getJokes()
+
     }
 
     async componentDidMount() {
@@ -50,11 +56,19 @@ class JokesList extends Component {
             jokes: st.jokes.map(j =>
                 j.id === id ? { ...j, votes: j.votes + delta } : j)
         }),
-        () => window.localStorage.setItem("jokes", JSON.stringify(this.state.jokes))
+            () => window.localStorage.setItem("jokes", JSON.stringify(this.state.jokes))
         );
     }
 
     render() {
+        if (this.state.loading) {
+            return (
+                <div className="spinner">
+                    <i className="far fa-8x fa-laugh fa-spin" />
+                    <h1 className="JokesList-spinner">Loading...</h1>
+                </div>
+            )
+        }
         return (
             <div className="JokesList">
                 <div className="JokesList-sidebar">
