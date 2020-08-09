@@ -5,13 +5,17 @@ import Contact from "./Contact";
 import About from "./About";
 
 // Importing route component
-import {Route} from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 
 function App() {
   return (
     <div className="App">
-      <Route path="/dog" component={Dog} />
+      <Switch >
+        <Route exact path="/" component={Contact} />
+        <Route exact path="/dog" component={Dog} />
+        <Route exact path="/about" component={About} />
+      </Switch>
     </div>
   );
 }
