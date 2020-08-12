@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Chips extends Component {
     render() {
         return (
-            <div>Gang</div>
+            <div>Chip Gang</div>
         )
     }
 }
