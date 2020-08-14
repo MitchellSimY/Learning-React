@@ -3,7 +3,7 @@ import React, {Component} from "react";
 class Food extends Component {
     render() {
 
-        const url = `https://source.unsplash.com/1600x900/?{$this.name.props}`;
+        const url = `https://source.unsplash.com/200x200/?${this.props.name}`;
 
         return (
             <div>
