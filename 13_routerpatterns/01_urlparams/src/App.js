@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Food from "./Food";
 import Meal from "./Meal";
+import FoodSearch from "./FoodSearch";
 
 // importing router.
 import { Route, Switch, Link, NavLink } from "react-router-dom";
