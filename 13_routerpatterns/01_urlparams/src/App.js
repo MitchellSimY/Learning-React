@@ -8,8 +8,12 @@ import { Route, Switch, Link, NavLink } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <h1>Test</h1>
-      <Food name="kale"/>
+
+
+      <Route exact path='/food/:name'
+      render = {routeProps => <Food {...routeProps} />} />
+
+
     </div>
   );
 }
