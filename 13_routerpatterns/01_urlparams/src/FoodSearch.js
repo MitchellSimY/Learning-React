@@ -7,9 +7,9 @@ class FoodSearch extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange() {
+    handleChange(evt) {
         this.setState({
-            query: evt.target.value;
+            query: evt.target.value
         })
     }
 

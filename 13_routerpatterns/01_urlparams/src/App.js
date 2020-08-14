@@ -20,7 +20,7 @@ function App() {
         <Route exact path='/food/:foodName/drink/:drinkName' component={Meal} />
 
         {/* Home/Root route */}
-        <Route exact path="/" render={() => <h1>Home page.</h1>} />
+        <Route exact path="/" render={() => <FoodSearch />} />
 
 
           {/* 404 page. */}
