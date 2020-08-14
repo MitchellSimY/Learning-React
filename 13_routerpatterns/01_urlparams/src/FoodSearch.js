@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from "react-router-dom";
 
 class FoodSearch extends Component {
     constructor(props) {
@@ -19,6 +20,7 @@ class FoodSearch extends Component {
             <h1>Search for a food</h1>
                 <input type="text" placeholder="Search for a food" 
                 value={this.state.query} onChange={this.handleChange} />
+                <Link to={`/food/${this.state.query}`}>GOGOGO!</Link>
             </div>
         )
     }
