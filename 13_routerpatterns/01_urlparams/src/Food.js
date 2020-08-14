@@ -1,4 +1,5 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 class Food extends Component {
     render() {
@@ -6,9 +7,13 @@ class Food extends Component {
         const url = `https://source.unsplash.com/200x200/?${name}`;
 
         return (
-            <div>
-                <h1>I love to eat {name}</h1>
-                <img src={url} alt={name} />
+            <div className="Food">
+                {/\d/.test(name) ? (<Redirect to="/" />) :
+                    (<div>
+                        <h1>I love to eat {name}</h1>
+                        <img src={url} alt={name} />
+                    </div>
+                    )}
             </div>
         )
     }
