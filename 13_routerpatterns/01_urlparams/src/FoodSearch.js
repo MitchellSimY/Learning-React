@@ -19,7 +19,7 @@ class FoodSearch extends Component {
         // Do something.
         alert("Saved food to Database!");
         // Redirect
-        this.props.history.push("/");
+        this.props.history.push(`/food/${this.state.query}`);
     }
 
     render() {
@@ -31,7 +31,7 @@ class FoodSearch extends Component {
                 a search in the LINK tag. */}
                 <input type="text" placeholder="Search for a food"
                     value={this.state.query} onChange={this.handleChange} />
-                <Link to={`/food/${this.state.query}`}>GOGOGO!</Link>
+                {/* <Link to={`/food/${this.state.query}`}>GOGOGO!</Link> */}
                 <button onClick={this.handleClick}>Save New Food!</button>
             </div>
         )
