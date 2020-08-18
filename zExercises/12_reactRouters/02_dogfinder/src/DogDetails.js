@@ -12,8 +12,14 @@ class DogDetails extends Component {
             <div>
                 <div className="DogDetails">
 
-                    <h1>{dog.name}</h1>
+                    
                     <img src={dog.src} alt={dog.name} />
+                    <h1>{dog.name}</h1>
+                    <p>{dog.age} years old</p>
+                    {dog.facts.map( fact => (
+                        <p>{fact}</p>
+                    ))}
+
 
                 </div>
 
