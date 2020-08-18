@@ -2,11 +2,17 @@
     width: 75%;
     border-radius: 50%;
     filter: grayscale(100%);
+    padding: 2px;
 }
 
 img:hover {
     filter: grayscale(0%);
     /* width: 80%; */
     transition: transform .2s;
-    transform: scale(1.05);
+
+    transform: scale(1.09);
+}
+
+.Dog col-4 text-center:hover {
+    text-decoration: underline;
 }
