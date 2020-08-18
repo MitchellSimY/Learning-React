@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import DogList from "./DogList";
 
 // Importing Router.
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, NavLink } from "react-router-dom";
 
 class NavBar extends Component {
     render() {
@@ -33,6 +33,7 @@ class NavBar extends Component {
                         </li>
 
 
+                        {/* DROP DOWN. */}
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -43,6 +44,14 @@ class NavBar extends Component {
                                 <a class="dropdown-item" href="#">Another action</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Something else here</a>
+{/* 
+                                {this.props.dogs.map(d => (
+                                    <NavLink exact path='/dogs/' >asd</NavLink>
+                                ))} */}
+
+
+
+
                             </div>
                         </li>
                         <li class="nav-item">
