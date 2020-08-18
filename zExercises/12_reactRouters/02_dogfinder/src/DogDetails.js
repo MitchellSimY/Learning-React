@@ -2,10 +2,13 @@ import React, { Component } from "react";
 
 
 class DogDetails extends Component {
+    
     render() {
+        console.log(this.props.dog);
         return (
             <div>
-                test from DogDetails
+                Dog Details component
+                
             </div>
         )
     }

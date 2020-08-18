@@ -12,6 +12,7 @@ import { Switch, Route } from "react-router-dom";
 import whiskey from "./imgs/whiskey.jpg";
 import tubby from "./imgs/tubby.jpg";
 import hazel from "./imgs/hazel.jpg";
+import DogDetails from './DogDetails';
 
 
 class App extends Component {
@@ -56,8 +57,10 @@ class App extends Component {
       <div className="App">
         <NavBar dogs={this.props.dogs} />
 
-        <Route exact path="/dogs" render={() => <DogList dogs={this.props.dogs} />} />
-
+        <Switch>
+          <Route exact path="/dogs" render={() => <DogList dogs={this.props.dogs} />} />
+          <Route exact path="/dogs/:name" render={() => <DogDetails />} />
+        </Switch>
       </div>
     );
   }

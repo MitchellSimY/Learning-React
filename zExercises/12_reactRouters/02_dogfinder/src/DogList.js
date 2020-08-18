@@ -14,8 +14,10 @@ class DogList extends Component {
                     <div className="row">
                         {this.props.dogs.map(d => (
                             <div className="Dog col-4 text-center" key={d.name}>
-                                
-                                <NavLink exact to={`/dogs/${d.name}`} render={() => <DogDetails dog={d} />}> <img src={d.src} alt={d.name}></img>
+
+                                <NavLink exact to={`/dogs/${d.name}`}
+                                    render={() => <DogDetails dog={d} />}>
+                                    <img src={d.src} alt={d.name}></img>
                                     <h3>{d.name}</h3>
                                 </NavLink>
                             </div>
