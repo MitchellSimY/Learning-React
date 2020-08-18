@@ -3,11 +3,10 @@ import './App.css';
 
 // Importing components
 import NavBar from "./NavBar";
-import DogList from "./DogList";
-import DogDetails from './DogDetails';
 
-// Importing Router.
-import { Switch, Route } from "react-router-dom";
+import Routes from "./Routes";
+
+
 
 // Importing dog images. src: xxx
 import whiskey from "./imgs/whiskey.jpg";
@@ -54,30 +53,13 @@ class App extends Component {
   }
   render() {
 
-    // Get dog is given the props. 
-    // This whole function prtty much says 
-    // Aight bro, I'll check the passed prop information
-    // then return a dog detail component.
-    const getDog = props => {
-      // params name is given from the props.
-      let name = props.match.params.name;
 
-      let currentDog = this.props.dogs.find(
-        dog => dog.name.toLowerCase() === name.toLowerCase()
-      )
-      return <DogDetails {...props} dog={currentDog}/>
-    }
 
     return (
 
       <div className="App">
         <NavBar dogs={this.props.dogs} />
-
-        <Switch>
-          <Route exact path="/dogs" render={() => <DogList dogs={this.props.dogs} />} />
-          {/* render runs the function getDog */}
-          <Route exact path="/dogs/:name" render={getDog} />
-        </Switch>
+        <Routes dogs={this.props.dogs}/>
       </div>
     );
   }
