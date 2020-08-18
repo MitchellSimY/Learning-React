@@ -9,7 +9,7 @@ import {Link} from "react-router-dom"
 class DogDetails extends Component {
 
     render() {
-        console.table(this.props.dog);
+
         let dog = this.props.dog;
         return (
             <div>
