@@ -54,9 +54,9 @@ class App extends Component {
     return (
 
       <div className="App">
-        <NavBar />
+        <NavBar dogs={this.props.dogs} />
 
-        <Route exact path="/dogs" render={() => <DogList dogs={this.props.dogs}/>} />
+        <Route exact path="/dogs" render={() => <DogList dogs={this.props.dogs} />} />
 
       </div>
     );

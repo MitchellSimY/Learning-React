@@ -1,5 +1,11 @@
 import React, { Component } from "react";
 
+// Importing Components
+import DogList from "./DogList";
+
+// Importing Router.
+import { Switch, Route, Link } from "react-router-dom";
+
 class NavBar extends Component {
     render() {
         return (
@@ -14,9 +20,17 @@ class NavBar extends Component {
                         <li class="nav-item active">
                             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                         </li>
+
+
+                        {/* DOG LIST */}
+
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
+                            {/* <a class="nav-link" href="#">Dogs</a> */}
+                            <Link exact to="/dogs" class="nav-link" render={() => <DogList dogs={this.props.dogs} />}>Dogs!</Link>
                         </li>
+
+
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Dropdown
