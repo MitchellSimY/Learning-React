@@ -1,3 +1,12 @@
 .Dog img {
     width: 75%;
+    border-radius: 50%;
+    filter: grayscale(100%);
+}
+
+img:hover {
+    filter: grayscale(0%);
+    /* width: 80%; */
+    transition: transform .2s;
+    transform: scale(1.05);
 }
