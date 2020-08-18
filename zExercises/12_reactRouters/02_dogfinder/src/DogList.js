@@ -1,10 +1,22 @@
 import React, { Component } from "react";
+import "./DogList.css";
 
 class DogList extends Component {
     render() {
         return (
-            <div>
-                Test from DogList
+            <div className="DogList">
+                <h1 className="display-1 text-center">Dog list!</h1>
+                <div className="container">
+                    <div className="row">
+                        {this.props.dogs.map(d => (
+                            <div className="Dog col-4 text-center" key={d.name}>
+                                <img src={d.src} alt={d.name}></img>
+                                <h3>{d.name}</h3>                      
+                            </div>
+                        ))}
+
+                    </div>
+                </div>
             </div>
         )
     }
