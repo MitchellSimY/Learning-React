@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import "./DogList.css";
+import DogDetails from "./DogDetails";
+
+// Importing Routes.
+import { Switch, Route, NavLink } from "react-router-dom";
 
 class DogList extends Component {
     render() {
@@ -10,8 +14,10 @@ class DogList extends Component {
                     <div className="row">
                         {this.props.dogs.map(d => (
                             <div className="Dog col-4 text-center" key={d.name}>
-                                <img src={d.src} alt={d.name}></img>
-                                <h3>{d.name}</h3>                      
+                                
+                                <NavLink exact to={`/dogs/${d.name}`} render={() => <DogDetails dog={d} />}> <img src={d.src} alt={d.name}></img>
+                                    <h3>{d.name}</h3>
+                                </NavLink>
                             </div>
                         ))}
 
