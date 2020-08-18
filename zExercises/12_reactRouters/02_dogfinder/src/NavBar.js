@@ -17,8 +17,11 @@ class NavBar extends Component {
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
+
+                        {/* Home component. */}
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            {/* <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> */}
+                            <Link exact to="/" class="nav-link">Home </Link>
                         </li>
 
 
