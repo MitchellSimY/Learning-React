@@ -23,7 +23,7 @@ function App() {
         <Route exact path="/" render={(routeProps) => <FoodSearch {...routeProps} />} />
 
 
-          {/* 404 page. */}
+        {/* 404 page. */}
         <Route exact render={() => <h1>Error not found.</h1>} />
       </Switch>
     </div>
