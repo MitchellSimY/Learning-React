@@ -14,6 +14,7 @@ class Todo extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleEvent.bind(this);
     }
+    //
 
     handleEvent(evt) {
         let action = evt.target.name;
