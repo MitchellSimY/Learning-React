@@ -10,6 +10,7 @@ class TodoList extends Component {
         };
         this.addList = this.addList.bind(this);
     }
+    // test
 
 
     addList(incomingList) {
